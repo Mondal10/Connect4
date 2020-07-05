@@ -1,38 +1,189 @@
-.App {
+body {
+  font-family: 'Lucida Sans Unicode';
+  background-color: #ced2dc;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+/* Gameboard and sidebar css */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin: 0 auto;
+  width: fit-content;
+  background-color: #F5F5F5;
+  border-radius: 20px;
+}
+
+.sidebar {
+  margin-left: 20px;
+  width: 220px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.active {
+  /* border: 1px solid #FF6600; */
+  box-shadow: inset 0px 0px 0px 5px #FF6600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cardHolder {
+  display: flex;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #70707026;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.gridContainer {
+  background-color: #84A4FC;
+  border-radius: 30px;
+}
+
+.row {
+  display: flex;
+}
+
+.primaryBtn {
+  color: #ffffff;
+  background: #4B7BFF;
+  border-radius: 10px;
+  border: 1px solid #70707026;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.secondaryBtn {
+  color: #4B7BFF;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #70707026;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+}
+
+.endBtn {
+  color: #CC0000;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #70707026;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cell {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.message {
+  text-align: center;
+  font-size: 17px;
+}
+
+.white {
+  height: 60px;
+  width: 60px;
+  background-color: #FFF;
+  border-radius: 100px;
+}
+
+.player1 {
+  height: 50px;
+  width: 50px;
+  background-color: #DCF6E4;
+  border-radius: 50%;
+  border: 5px solid #37AC5D;
+}
+
+.player2 {
+  height: 50px;
+  width: 50px;
+  background-color: #F6EFD5;
+  border-radius: 50%;
+  border: 5px solid #F8D146;
+}
+
+.animatePiece {
+  animation-iteration-count: 1;
+  animation-name: move-piece;
+  animation-duration: 0.5s;
+}
+
+/* Add this class only to winning cells */
+.win {
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 10px #FFFF00;
+  transition: box-shadow 0.5s, color 0.5s;
+}
+
+@keyframes move-piece {
+  from {transform: translateY(-500px);}
+  to {transform: translateY(0px);}
+}
+
+/* Homepage related CSS */
+.parentContainer {
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.homepageContainer {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 3px 10px #00000029;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.btnContainer {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.gameBtn {
+  padding: 10px;
+  color: #ffffff;
+  border: none;
+  width: 160px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Two player Config */
+.configContainer {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 40%;
+  padding: 20px;
+}
+
+.optinsContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  text-align: center;
 }
