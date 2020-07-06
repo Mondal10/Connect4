@@ -40,11 +40,11 @@ function TwoPlayerConfig() {
         <div className="optinsContainer">
           <label>
             Player 01:
-              <input type="text" name="player1" value={player1} onChange={handleInputChange} />
+              <input type="text" placeholder="Player 1 name" name="player1" value={player1} onChange={handleInputChange} />
           </label>
           <label>
             Player 02:
-              <input type="text" name="player2" value={player2} onChange={handleInputChange} />
+              <input type="text" placeholder="Player 2 name" name="player2" value={player2} onChange={handleInputChange} />
           </label>
           <label>
             Number of Games:
