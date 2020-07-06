@@ -58,7 +58,7 @@ function TwoPlayerConfig() {
         </div>
 
         <hr style={{ width: "80%" }} />
-        <button className="primaryBtn" onClick={() => setConfigPage(false)}>Start Game</button>
+        <button className={`primaryBtn ${(player1 && player2) ? '' : 'disabled'}`} onClick={() => setConfigPage(false)}>Start Game</button>
       </div>
     </div>
   )
