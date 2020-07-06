@@ -205,3 +205,8 @@ select {
   padding: 12px 20px;
   margin: 8px 0;
 }
+
+/* Smartphones (portrait and landscape) */
+@media only screen and (min-width : 240px) and (max-width : 568px) {
+
+}
