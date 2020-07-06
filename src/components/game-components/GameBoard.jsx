@@ -6,7 +6,18 @@ import Sidebar from './Sidebar';
 import { PlayerContext } from '../../App';
 
 function GameBoard() {
-  const {totalGames} = useContext(PlayerContext);
+  const {
+    totalGames,
+    setGameOver,
+    roundOver,
+    setRoundOver,
+    playerNames,
+    setMessage,
+    player1Score,
+    setPlayer1Score,
+    player2Score,
+    setPlayer2Score,
+  } = useContext(PlayerContext);
 
   const player1 = 1;
   const player2 = 2;
@@ -14,11 +25,7 @@ function GameBoard() {
 
   const [currentPlayer, setCurrentPlayer] = useState(null);
   const [boardData, setBoardData] = useState([]);
-  const [gameOver, setGameOver] = useState(false);
-  const [message, setMessage] = useState('');
   const [round, setRound] = useState(0);
-  const [player1Score, setPlayer1Score] = useState(0);
-  const [player2Score, setPlayer2Score] = useState(0);
 
   // Starts new game and initialize states
   const initBoard = () => {
@@ -37,7 +44,7 @@ function GameBoard() {
 
     setBoardData([...board]);
     setCurrentPlayer(player1);
-    setGameOver(false);
+    setRoundOver(false);
     setMessage('');
 
     if (totalGames > round) {
@@ -151,7 +158,7 @@ function GameBoard() {
   }
 
   const play = (c) => {
-    if (!gameOver) {
+    if (!roundOver) {
       // Place piece on board
       let board = boardData;
 
@@ -167,17 +174,28 @@ function GameBoard() {
 
       if (result === player1) {
         setBoardData([...board]);
-        setGameOver(true);
-        setMessage('Player 1 wins!');
+        setRoundOver(true);
+        setMessage(`${playerNames['player1']} won round ${round}`);
         setPlayer1Score(player1Score + 1);
+
+        if (totalGames === round) {
+          setGameOver(true)
+        }
       } else if (result === player2) {
         setBoardData([...board]);
-        setGameOver(true);
-        setMessage('Player 2 wins!');
+        setRoundOver(true);
+        setMessage(`${playerNames['player2']} won round ${round}`);
         setPlayer2Score(player2Score + 1);
+
+        if (totalGames === round) {
+          setGameOver(true)
+        }
       } else if (result === 'draw') {
         setBoardData([...board]);
-        setGameOver(true);
+        if (totalGames === round) {
+          setGameOver(true)
+        }
+        setRoundOver(true);
         setMessage('Draw game.');
       } else {
         // Toggling player
@@ -185,13 +203,15 @@ function GameBoard() {
         setCurrentPlayer((currentPlayer === player1) ? player2 : player1);
       }
     } else {
-      setMessage('Game over. Please start a new game.');
+      console.log('ELSE:::');
+      // setMessage('Game over. Please start a new game.');
     }
   }
 
   // initialize board only once
   useEffect(() => {
     initBoard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -207,7 +227,6 @@ function GameBoard() {
         </div>
         <Sidebar currentPlayer={currentPlayer} initBoard={initBoard} round={round} playerScore={{ 'player1': player1Score, 'player2': player2Score }} />
       </div>
-      <p className="message">{message}</p>
     </div>
   )
 }

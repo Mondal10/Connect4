@@ -11,19 +11,33 @@ const PlayerProvider = PlayerContext.Provider;
 function App() {
   const [homePage, setHomepage] = useState(true);
   const [configPage, setConfigPage] = useState(true);
+  const [gameOver, setGameOver] = useState(false);
+  const [roundOver, setRoundOver] = useState(false);
   const [playerNames, setPlayerNames] = useState({
     player1: '',
     player2: ''
   });
+  const [player1Score, setPlayer1Score] = useState(0);
+  const [player2Score, setPlayer2Score] = useState(0);
   const [totalGames, setTotalGames] = useState(2);
+  const [message, setMessage] = useState('');
 
-  // Put other states also here (player name, etc)
   const value = {
     totalGames,
     setTotalGames,
     setConfigPage,
     playerNames,
     setPlayerNames,
+    gameOver,
+    setGameOver,
+    roundOver,
+    setRoundOver,
+    message,
+    setMessage,
+    player1Score,
+    setPlayer1Score,
+    player2Score,
+    setPlayer2Score,
   };
 
   return (

@@ -21,7 +21,7 @@ h1 {
 
 .sidebar {
   margin-left: 20px;
-  width: 220px;
+  width: 230px;
   text-align: center;
 }
 
@@ -95,11 +95,6 @@ h1 {
   cursor: pointer;
 }
 
-.message {
-  text-align: center;
-  font-size: 17px;
-}
-
 .white {
   height: 60px;
   width: 60px;
@@ -134,6 +129,11 @@ h1 {
   border-radius: 50%;
   box-shadow: inset 0px 0px 0px 10px #FFFF00;
   transition: box-shadow 0.5s, color 0.5s;
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 @keyframes move-piece {
