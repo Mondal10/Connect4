@@ -21,6 +21,8 @@ function App() {
   const [player2Score, setPlayer2Score] = useState(0);
   const [totalGames, setTotalGames] = useState(2);
   const [message, setMessage] = useState('');
+  const [player1Image, setPlayer1Image] = useState('');
+  const [player2Image, setPlayer2Image] = useState('');
 
   const value = {
     totalGames,
@@ -38,6 +40,10 @@ function App() {
     setPlayer1Score,
     player2Score,
     setPlayer2Score,
+    player1Image,
+    setPlayer1Image,
+    player2Image,
+    setPlayer2Image
   };
 
   return (

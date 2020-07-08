@@ -118,6 +118,12 @@ h1 {
   border: 5px solid #F8D146;
 }
 
+.avatar {
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+}
+
 .animatePiece {
   animation-iteration-count: 1;
   animation-name: move-piece;
@@ -204,6 +210,12 @@ select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
+}
+
+input[type=file] {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* Smartphones (portrait and landscape) */

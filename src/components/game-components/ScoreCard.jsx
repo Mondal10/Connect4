@@ -1,27 +1,24 @@
 import React, { useContext } from 'react';
 
-import avatar1 from '../../assets/images/avatars/avatar01.png';
-import avatar2 from '../../assets/images/avatars/avatar02.png';
-
 import { PlayerContext } from '../../App';
 
 function ScoreCard({ player, current, playerScore }) {
-    let avatar;
+    let imgUrl;
     let bgColor;
     let playerClass;
     let currentPlayer;
 
-    const {playerNames} = useContext(PlayerContext);
+    const {playerNames, player1Image, player2Image} = useContext(PlayerContext);
 
     if (player === 'player1') {
-        playerClass = 'player1';
+        playerClass = 'player1 avatar';
         currentPlayer = `${(current === 1) ? 'active' : ''} cardHolder`;
-        avatar = avatar1;
+        imgUrl = player1Image;
         bgColor = '#DCF6E4';
     } else {
-        playerClass = 'player2';
+        playerClass = 'player2 avatar';
         currentPlayer = `${(current === 2) ? 'active' : ''} cardHolder`;
-        avatar = avatar2;
+        imgUrl = player2Image;
         bgColor = '#F6EFD5';
     }
 
@@ -30,9 +27,7 @@ function ScoreCard({ player, current, playerScore }) {
             background: `${bgColor}`
         }}>
             <div className={playerClass} style={{
-                backgroundImage: `url(${avatar})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundImage: `url(${imgUrl})`
             }}>
             </div>
             <div style={{

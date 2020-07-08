@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
 
-// import avatar1 from '../../assets/images/avatars/avatar01.png';
-// import avatar2 from '../../assets/images/avatars/avatar02.png';
-
 import { PlayerContext } from '../App';
 
 function TwoPlayerConfig() {
@@ -10,8 +7,14 @@ function TwoPlayerConfig() {
     setConfigPage,
     playerNames,
     setPlayerNames,
-    setTotalGames
+    setTotalGames,
+    player1Image,
+    setPlayer1Image,
+    player2Image,
+    setPlayer2Image
   } = useContext(PlayerContext);
+
+  let imgUrl;
 
   const { player1, player2 } = playerNames;
 
@@ -29,6 +32,18 @@ function TwoPlayerConfig() {
     setTotalGames(Number(event.target.value));
   };
 
+  const handleImageUrl = (event) => {
+    const { name } = event.target;
+
+    if (name === 'player1') {
+      imgUrl = URL.createObjectURL(event.target.files[0])
+      setPlayer1Image(imgUrl)
+    } else {
+      imgUrl = URL.createObjectURL(event.target.files[0])
+      setPlayer2Image(imgUrl)
+    }
+  };
+
   return (
     <div style={{
       height: "100vh",
@@ -38,14 +53,32 @@ function TwoPlayerConfig() {
     }}>
       <div className="configContainer">
         <div className="optinsContainer">
-          <label>
-            Player 01:
+          <div style={{
+            display: 'flex'
+          }}>
+            <div className="player1 avatar" style={{
+                backgroundImage: `url(${player1Image})`
+            }}>
+              <input type="file" name="player1" onChange={handleImageUrl}/>
+            </div>
+            <label>
+              Player 01:
               <input type="text" placeholder="Player 1 name" name="player1" value={player1} onChange={handleInputChange} />
-          </label>
-          <label>
-            Player 02:
+            </label>
+          </div>
+          <div style={{
+            display: 'flex'
+          }}>
+            <div className="player2 avatar" style={{
+                backgroundImage: `url(${player2Image})`
+            }}>
+              <input type="file" name="player2" onChange={handleImageUrl}/>
+            </div>
+            <label>
+              Player 02:
               <input type="text" placeholder="Player 2 name" name="player2" value={player2} onChange={handleInputChange} />
-          </label>
+            </label>
+          </div>
           <label>
             Number of Games:
             <select onChange={handleSelectChange}>
