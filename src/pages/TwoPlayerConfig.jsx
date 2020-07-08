@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 
+import numberOfGameIcon from '../assets/images/icons/winner.png';
+// import alternateChoiceIcon from '../assets/images/icons/run.png';
+
 import { PlayerContext } from '../App';
 
 function TwoPlayerConfig() {
@@ -53,43 +56,51 @@ function TwoPlayerConfig() {
     }}>
       <div className="configContainer">
         <div className="optinsContainer">
-          <div className="config" style={{ 
+          <div className="config" style={{
             background: "#DCF6E4"
           }}>
             <div className="player1 avatar" style={{
-                backgroundImage: `url(${player1Image})`,
-                marginRight: "10px"
+              backgroundImage: `url(${player1Image})`,
+              marginRight: "10px"
             }}>
-              <input type="file" name="player1" onChange={handleImageUrl}/>
+              <input type="file" name="player1" onChange={handleImageUrl} />
             </div>
             <label>
               Player 01:
               <input type="text" placeholder="Player 1 name" name="player1" value={player1} onChange={handleInputChange} />
             </label>
           </div>
-          <div className="config" style={{ 
+          <div className="config" style={{
             background: "#F6EFD5"
           }}>
             <div className="player2 avatar" style={{
-                backgroundImage: `url(${player2Image})`,
-                marginRight: "10px"
+              backgroundImage: `url(${player2Image})`,
+              marginRight: "10px"
             }}>
-              <input type="file" name="player2" onChange={handleImageUrl}/>
+              <input type="file" name="player2" onChange={handleImageUrl} />
             </div>
             <label>
               Player 02:
               <input type="text" placeholder="Player 2 name" name="player2" value={player2} onChange={handleInputChange} />
             </label>
           </div>
-          <label>
-            Number of Games:
-            <select onChange={handleSelectChange}>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-            </select>
-          </label>
+          <div className="config" style={{
+            background: "#EFF3FF"
+          }}>
+            <div className="otherConfig avatar" style={{
+              backgroundImage: `url(${numberOfGameIcon})`,
+              marginRight: "10px"
+            }}></div>
+            <label>
+              Number of Games:
+              <select onChange={handleSelectChange}>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         <hr style={{ width: "80%" }} />

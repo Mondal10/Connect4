@@ -118,6 +118,14 @@ h1 {
   border: 5px solid #F8D146;
 }
 
+.otherConfig {
+  height: 50px;
+  width: 50px;
+  background-color: #EFF3FF;
+  border-radius: 50%;
+  border: 5px solid #B1C4F9;
+}
+
 .avatar {
   background-repeat: no-repeat;
   background-size: 80%;
@@ -198,6 +206,7 @@ label {
   text-align: left;
   color: #424242;
   margin-top: 5px;
+  width: 80%;
 }
 
 input[type=text] {
@@ -211,8 +220,11 @@ input[type=text] {
 
 select {
   width: 100%;
-  padding: 12px 20px;
   margin: 8px 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #707070;
 }
 
 input[type=file] {
