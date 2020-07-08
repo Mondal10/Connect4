@@ -197,13 +197,16 @@ h1 {
 label {
   text-align: left;
   color: #424242;
+  margin-top: 5px;
 }
 
 input[type=text] {
   width: 100%;
-  padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #707070;
 }
 
 select {
@@ -216,6 +219,14 @@ input[type=file] {
   opacity: 0;
   height: 100%;
   width: 100%;
+}
+
+.config {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: 1px solid #70707026;
 }
 
 /* Smartphones (portrait and landscape) */

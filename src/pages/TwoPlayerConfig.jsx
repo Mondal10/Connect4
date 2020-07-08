@@ -53,11 +53,12 @@ function TwoPlayerConfig() {
     }}>
       <div className="configContainer">
         <div className="optinsContainer">
-          <div style={{
-            display: 'flex'
+          <div className="config" style={{ 
+            background: "#DCF6E4"
           }}>
             <div className="player1 avatar" style={{
-                backgroundImage: `url(${player1Image})`
+                backgroundImage: `url(${player1Image})`,
+                marginRight: "10px"
             }}>
               <input type="file" name="player1" onChange={handleImageUrl}/>
             </div>
@@ -66,11 +67,12 @@ function TwoPlayerConfig() {
               <input type="text" placeholder="Player 1 name" name="player1" value={player1} onChange={handleInputChange} />
             </label>
           </div>
-          <div style={{
-            display: 'flex'
+          <div className="config" style={{ 
+            background: "#F6EFD5"
           }}>
             <div className="player2 avatar" style={{
-                backgroundImage: `url(${player2Image})`
+                backgroundImage: `url(${player2Image})`,
+                marginRight: "10px"
             }}>
               <input type="file" name="player2" onChange={handleImageUrl}/>
             </div>
