@@ -23,6 +23,7 @@ function App() {
   const [player1Score, setPlayer1Score] = useState(0);
   const [player2Score, setPlayer2Score] = useState(0);
   const [totalGames, setTotalGames] = useState(2);
+  const [playerTurn, setPlayerTurn] = useState('alternate');
   const [message, setMessage] = useState('');
   const [player1Image, setPlayer1Image] = useState(avatar1);
   const [player2Image, setPlayer2Image] = useState(avatar2);
@@ -46,7 +47,9 @@ function App() {
     player1Image,
     setPlayer1Image,
     player2Image,
-    setPlayer2Image
+    setPlayer2Image,
+    playerTurn,
+    setPlayerTurn,
   };
 
   return (

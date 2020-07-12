@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import numberOfGameIcon from '../assets/images/icons/winner.png';
-// import alternateChoiceIcon from '../assets/images/icons/run.png';
+import playerTurnOptions from '../assets/images/icons/run.png';
 
 import { PlayerContext } from '../App';
 
@@ -11,6 +11,7 @@ function TwoPlayerConfig() {
     playerNames,
     setPlayerNames,
     setTotalGames,
+    setPlayerTurn,
     player1Image,
     setPlayer1Image,
     player2Image,
@@ -31,8 +32,12 @@ function TwoPlayerConfig() {
     }
   };
 
-  const handleSelectChange = (event) => {
+  const handleNumberOfGames = (event) => {
     setTotalGames(Number(event.target.value));
+  };
+
+  const handlePlayerTurn = (event) => {
+    setPlayerTurn(event.target.value);
   };
 
   const handleImageUrl = (event) => {
@@ -93,11 +98,29 @@ function TwoPlayerConfig() {
             }}></div>
             <label>
               Number of Games:
-              <select onChange={handleSelectChange}>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
+              <select onChange={handleNumberOfGames}>
+                <option value="2">2 Games</option>
+                <option value="3">3 Games</option>
+                <option value="5">5 Games</option>
+                <option value="10">10 Games</option>
+              </select>
+            </label>
+          </div>
+          <div className="config" style={{
+            background: "#EFF3FF"
+          }}>
+            <div className="otherConfig avatar" style={{
+              backgroundImage: `url(${playerTurnOptions})`,
+              marginRight: "10px"
+            }}></div>
+            <label>
+              Who starts:
+              <select onChange={handlePlayerTurn}>
+                <option value="alternate">Alternative turn</option>
+                <option value="looserfirst">Looser first</option>
+                <option value="winnerfirst">Winner first</option>
+                <option value="player1">Always player 01</option>
+                <option value="player2">Always player 02</option>
               </select>
             </label>
           </div>

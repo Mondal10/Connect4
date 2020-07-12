@@ -17,6 +17,7 @@ function GameBoard() {
     setPlayer1Score,
     player2Score,
     setPlayer2Score,
+    playerTurn,
   } = useContext(PlayerContext);
 
   const player1 = 1;
@@ -26,6 +27,42 @@ function GameBoard() {
   const [currentPlayer, setCurrentPlayer] = useState(null);
   const [boardData, setBoardData] = useState([]);
   const [round, setRound] = useState(0);
+
+  const whoseTurn = (playerTurn) => {
+    console.log(playerTurn);
+
+    const turn = (Math.floor(Math.random() * 10) < 5) ? 1 : 2;
+
+    console.log(turn, 'score1',player1Score, 'score2',player2Score);
+
+    switch (playerTurn) {
+      case 'alternate':
+        // For first turn
+        if (!currentPlayer) {
+          return turn;
+        }
+        // Toggle player on next match
+        return (currentPlayer === player1) ? player2 : player1;
+      case 'looserfirst':
+        // For first turn
+        if (!currentPlayer || player1Score === player2Score) {
+          return turn;
+        }
+        return (player1Score < player2Score) ? player1 : player2;
+      case 'winnerfirst':
+        // For first turn
+        if (!currentPlayer || player1Score === player2Score) {
+          return turn;
+        }
+        return (player1Score > player2Score) ? player1 : player2;
+      case 'player1':
+        return 1;
+      case 'player2':
+        return 2;
+      default:
+        return 1;
+    }
+  };
 
   // Starts new game and initialize states
   const initBoard = () => {
@@ -43,7 +80,8 @@ function GameBoard() {
     }
 
     setBoardData([...board]);
-    setCurrentPlayer(player1);
+    // setCurrentPlayer(player1);
+    setCurrentPlayer(whoseTurn(playerTurn));
     setRoundOver(false);
     setMessage('');
 
@@ -203,7 +241,7 @@ function GameBoard() {
         setCurrentPlayer((currentPlayer === player1) ? player2 : player1);
       }
     } else {
-      console.log('ELSE:::');
+      console.log('DRAW:::');
       // setMessage('Game over. Please start a new game.');
     }
   }

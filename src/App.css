@@ -41,6 +41,7 @@ h1 {
 .gridContainer {
   background-color: #84A4FC;
   border-radius: 30px;
+  padding: 10px;
 }
 
 .row {
