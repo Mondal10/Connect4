@@ -80,7 +80,6 @@ function GameBoard() {
     }
 
     setBoardData([...board]);
-    // setCurrentPlayer(player1);
     setCurrentPlayer(whoseTurn(playerTurn));
     setRoundOver(false);
     setMessage('');
